@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodebridgeTest.API", "CodebridgeTest.API\CodebridgeTest.API.csproj", "{5A13F231-F433-4D4A-95A4-7948C6AED9DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodebridgeTest.Domain", "CodebridgeTest.Domain\CodebridgeTest.Domain.csproj", "{777A0CE6-B840-452B-A42A-CE0CA1EDCB75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodebridgeTest.BL", "CodebridgeTest.BL\CodebridgeTest.BL.csproj", "{8AF637B6-855F-4098-8A04-363D6D519BF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{5A13F231-F433-4D4A-95A4-7948C6AED9DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A13F231-F433-4D4A-95A4-7948C6AED9DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A13F231-F433-4D4A-95A4-7948C6AED9DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{777A0CE6-B840-452B-A42A-CE0CA1EDCB75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{777A0CE6-B840-452B-A42A-CE0CA1EDCB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{777A0CE6-B840-452B-A42A-CE0CA1EDCB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{777A0CE6-B840-452B-A42A-CE0CA1EDCB75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AF637B6-855F-4098-8A04-363D6D519BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AF637B6-855F-4098-8A04-363D6D519BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AF637B6-855F-4098-8A04-363D6D519BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AF637B6-855F-4098-8A04-363D6D519BF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
