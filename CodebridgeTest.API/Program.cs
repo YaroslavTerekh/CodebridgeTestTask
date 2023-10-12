@@ -1,6 +1,12 @@
+using CodebridgeTest.BL.Settings;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var applicationInfo = builder.Configuration
+    .GetRequiredSection("Info")
+    .Get<ApplicationInfo>();
+builder.Services.AddSingleton(applicationInfo);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
