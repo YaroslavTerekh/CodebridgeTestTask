@@ -1,12 +1,19 @@
 using CodebridgeTest.BL.Settings;
 using CodebridgeTest.Domain.DbConnection;
 using Microsoft.EntityFrameworkCore;
+using MediatR;
+using FluentValidation;
+using CodebridgeTest.BL.Behaviors;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContextsCustom(builder.Configuration);
 
+builder.Services.AddValidatorsFromAssembly(AppDomain.CurrentDomain.GetAssemblies().Where(t => t.FullName.Contains("BL")).First());
+builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
+
 // Add services to the container.
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 var applicationInfo = builder.Configuration
     .GetRequiredSection("Info")
     .Get<ApplicationInfo>();
