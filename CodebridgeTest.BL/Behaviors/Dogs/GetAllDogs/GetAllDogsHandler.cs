@@ -57,7 +57,7 @@ public class GetAllDogsHandler : IRequestHandler<GetAllDogsQuery, PaginationDTO<
                 .ToListAsync(cancellationToken));
         }
 
-        return new PaginationDTO<DogDTO>(1, 1, total,
+        return new PaginationDTO<DogDTO>(0, total, total,
                 await dogs
                 .Select(t => _mapper.Map<DogDTO>(t))
                 .ToListAsync(cancellationToken));
