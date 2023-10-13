@@ -5,6 +5,8 @@ using MediatR;
 using FluentValidation;
 using CodebridgeTest.BL.Behaviors;
 using CodebridgeTest.API.Middleware;
+using AspNetCoreRateLimit;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,15 @@ var applicationInfo = builder.Configuration
 builder.Services.AddSingleton(applicationInfo);
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddOptions();
+builder.Services.AddMemoryCache();
+
+builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
+builder.Services.Configure<IpRateLimitPolicies>(builder.Configuration.GetSection("IpRateLimitPolicies"));
+
+builder.Services.AddInMemoryRateLimiting();
+
+builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -43,6 +54,7 @@ if (app.Environment.IsDevelopment())
 app.UseCustomExceptionHandler();
 
 app.UseHttpsRedirection();
+app.UseIpRateLimiting();
 
 app.UseAuthorization();
 
